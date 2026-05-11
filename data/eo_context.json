@@ -1,0 +1,24 @@
+{
+    "emergency_declaration": {
+      "section": "1",
+      "description": "State of National Energy Emergency (Geopolitical Tensions)"
+    },
+    "package_definition": {
+      "section": "2",
+      "description": "UPLIFT: Unified Package for Livelihoods, Industry, Food, and Transport"
+    },
+    "committee": {
+      "section": "3",
+      "chair": "President of the Philippines",
+      "secretariat": "DEPDev"
+    },
+    "mandates": {
+      "DOE": "Section 5: Energy Supply Management",
+      "DOTr": "Section 6a: Transport Subsidies",
+      "DSWD": "Section 6b: Social Welfare (AICS)",
+      "DTI": "Section 6c: Price Monitoring",
+      "DA": "Section 6d: Food & Agri Support",
+      "DMW": "Section 6e: OFW Support",
+      "DBM": "Section 9: Funding from Existing Appropriations"
+    }
+  }
