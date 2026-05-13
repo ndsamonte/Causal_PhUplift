@@ -56,7 +56,11 @@ class UpliftCausalEngine:
         cf_df[Config.TREATMENT] = intensity_level
         
         # Prepare features for the linear learner
-        features = [Config.CONFOUNDER, Config.MEDIATOR, Config.TREATMENT]
+        features = [
+            Config.CONFOUNDER, 
+            Config.MEDIATOR, 
+            Config.TREATMENT]
+        
         X = sm.add_constant(cf_df[features], has_constant='add')
         
         return self.learner.predict(X).mean()
