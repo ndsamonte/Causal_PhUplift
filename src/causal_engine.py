@@ -30,13 +30,24 @@ class UpliftCausalEngine:
         )
         
         # Step 2: Identification (Finds Backdoor Criterion)
-        estimand = model.identify_effect(proceed_when_unidentified=True)
+        estimand = model.identify_effect()
         
         # Step 3: Estimation (Isolates Section 2 Effectiveness)
         estimate = model.estimate_effect(estimand, method_name="backdoor.linear_regression")
-        
-        # Save the learner for counterfactual simulation
-        self.learner = estimate.estimator.model
+
+        # Explicit transparent learner
+        X = self.data[
+            [Config.CONFOUNDER,
+            Config.MEDIATOR,
+            Config.TREATMENT]
+        ]
+
+        X = sm.add_constant(X)
+
+        y = self.data[Config.OUTCOME]
+
+        self.learner = sm.OLS(y, X).fit()
+
         return estimate.value
 
     def do_calculus_simulation(self, intensity_level):
